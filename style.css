@@ -24,7 +24,7 @@ body{
     align-items: flex-start;
 }
 
-button{
+/* button{
     position: absolute;
     border: hidden;
     outline: none;
@@ -34,11 +34,77 @@ button{
     color: #f1f1f1;
     transition: transform .3s;
     z-index: 5;
-}
+} */
 
-button:hover{
+/* button:hover{
     transform: scale(.95);
     cursor: pointer;
+} */
+
+.btn-burger{
+    position: relative;
+    border: hidden;
+    outline: none;
+    height: 50px;
+    width: 50px;
+    /* background-color: aquamarine; */
+    cursor: pointer;
+    z-index: 5;
+}
+
+.bar{
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background-color: black;
+    transition: transform 1s ease;
+}
+
+.bar--1{
+    transform: translate3d(0, -8px, 0);
+}
+
+.bar--2{
+    transform: translate3d(0, 8px, 0);
+}
+
+.btn-burger:hover .bar--1{
+    transform: rotate(180deg) translate3d(0, -8px, 0);
+}
+
+.btn-burger:hover .bar--2{
+    transform: rotate(180deg) translate3d(0, 8px, 0);
+}
+
+.btn-burger.active:hover .bar--1{
+    transform: rotate(-135deg) translate3d(0, 0, 0);
+}
+
+.btn-burger.active:hover .bar--2{
+    transform: rotate(-225deg) translate3d(0, 0, 0);
+}
+
+.btn-burger.active .bar--1{
+    transform: rotate(45deg) translate3d(0, 0, 0);
+}
+
+.btn-burger.active .bar--2{
+    transform: rotate(-45deg) translate3d(0, 0, 0);
+}
+
+#cursor{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 30px;
+    width: 30px;
+    border-radius: 70% 30% 70% 30% / 50% 40% 60% 50%;
+    z-index: 100;
+    pointer-events: none;
+    background-color: #fe796a;
+    transition: transform 150ms ease-out;
+    mix-blend-mode: difference;
 }
 
 .container{

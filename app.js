@@ -2,6 +2,8 @@ const listItems = document.querySelectorAll('li');
 const photos = document.querySelectorAll('img');
 const menu = document.querySelector('button');
 const menuList = document.querySelector('.container');
+const cursor = document.getElementById('cursor');
+const burger = document.querySelector('.btn-burger');
 
 listItems.forEach((li, i) => {
     li.addEventListener('mouseenter', () => {
@@ -17,7 +19,21 @@ listItems.forEach((li, i) => {
     })
 })
 
-menu.addEventListener('click', () => {
-	// menu.classList.toggle('active');
-	menuList.classList.toggle('active');
+// menu.addEventListener('click', () => {
+// 	// menu.classList.toggle('active');
+// 	menuList.classList.toggle('active');
+// });
+
+burger.addEventListener('click', () => {
+	burger.classList.toggle('active');
+    menuList.classList.toggle('active');
 });
+
+document.body.addEventListener('mousemove', (e) => {
+    const coord = {
+        x: e.pageX,
+        y: e.pageY
+    }
+
+    cursor.style.transform = `translate3D(calc(${coord.x}px - 50%), calc(${coord.y}px - 50%), 0)`;
+})
